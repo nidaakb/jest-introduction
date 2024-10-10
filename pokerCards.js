@@ -12,3 +12,11 @@ function selectCard(deck, card) {
     return undefined; // La carta no estaba en la baraja
 }
 
+const deck = ['A♠', '2♠', '3♠', '4♠', '5♠'];
+console.log(selectCard(deck, '8'));
+console.log('Array after selecting a card:',deck);
+
+
+module.exports = {
+    selectCard
+}

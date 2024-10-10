@@ -10,7 +10,11 @@ function high(x) {
     // PRIMERO: Darle un valor númerico a cada letra. 
     //Se me ocurre hacer un array con las letras donde su valor sea su posición en el index +1
 
-    const letters = ['a', , 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    const letters = ['a','b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    // 1.b . Si una palabra contiene en algún momento todas las vocales, esa palabra gana a todas las demás y hay que devolverla inmediatamente
+    
+    const vowels = ['a', 'e' , 'i', 'o', 'u']
 
     // Al intentar poner esto dentro de una variable descubro metodo bind(). VER DESPUES
 
@@ -25,6 +29,11 @@ function high(x) {
 
     // Recorrer cada palabra (array) para poner comparar cuál tiene más puntos
     for (let w of arrayPhrase) {
+
+        // Si la palabra continue TODAS las vocales, devolverla inmediatamente
+        if (vowels.every(vowel => w.includes(vowel))) {
+        return w;
+        }
 
         //contar los puntos de cada palabra iterando dentro de la misma  
         let pointstWord = 0;
@@ -42,6 +51,7 @@ function high(x) {
 
     return maxWord;
 }
+
 
 module.exports = {
     high
